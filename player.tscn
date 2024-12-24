@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dajcykqxiyemr"]
+
+[ext_resource type="Texture2D" uid="uid://cqukh8g5cu7v" path="res://assets/character_art/Ironclad.png" id="1_vushw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eo3lg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vushw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D"]
+position = Vector2(400, 550)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(33, 182)
+sprite_frames = SubResource("SpriteFrames_eo3lg")

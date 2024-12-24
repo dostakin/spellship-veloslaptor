@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://djseqncut2psj"]
+
+[ext_resource type="Texture2D" uid="uid://cq4b1dp1i8b4r" path="res://assets/cards/card_back/godot_back.png" id="1_jmtn7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7m8ii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jmtn7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Deck" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(209, 878)
+sprite_frames = SubResource("SpriteFrames_7m8ii")

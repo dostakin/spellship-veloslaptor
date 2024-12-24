@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3sayw06s5n4c"]
+
+[ext_resource type="Script" path="res://scripts/sts_test.gd" id="1_dbs71"]
+[ext_resource type="Texture2D" uid="uid://cr8x222kon56k" path="res://assets/StS Card assets/Silent Attack Background.png" id="2_frxv2"]
+[ext_resource type="Texture2D" uid="uid://247ov3h0tjj5" path="res://assets/StS Card assets/Common Attack Cover.png" id="3_3bmjo"]
+[ext_resource type="Texture2D" uid="uid://ded3fh6xv1gib" path="res://assets/StS Card assets/Common Name Banner.png" id="3_xfyry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7spd"]
+size = Vector2(304, 424)
+
+[node name="StS_Test" type="MarginContainer"]
+offset_right = 300.0
+offset_bottom = 420.0
+script = ExtResource("1_dbs71")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(152, 212)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frxv2")
+
+[node name="Card" type="Sprite2D" parent="."]
+position = Vector2(128, 104)
+scale = Vector2(0.5, 0.5)
+offset = Vector2(48, 70)
+
+[node name="Bars" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ArtCover" type="Sprite2D" parent="Bars"]
+position = Vector2(3, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_3bmjo")
+centered = false
+offset = Vector2(-214, -96)
+
+[node name="Banner" type="Sprite2D" parent="Bars"]
+position = Vector2(8, 3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xfyry")
+centered = false
+offset = Vector2(-220, -120)
+
+[node name="TopGap" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Bars"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Bars/TopBar/Name"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 25
+text = "Strike"
+horizontal_alignment = 1
+
+[node name="ArtGap" type="VBoxContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 162)
+layout_mode = 2
+
+[node name="TypeBox" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="Type" type="MarginContainer" parent="Bars/TypeBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Type" type="Label" parent="Bars/TypeBox/Type"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.158472, 0.158472, 0.158472, 1)
+theme_override_font_sizes/font_size = 15
+text = "  Attack"
+horizontal_alignment = 1
+
+[node name="TextGap" type="VBoxContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TextBox" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="Text" type="MarginContainer" parent="Bars/TextBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Text" type="Label" parent="Bars/TextBox/Text"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Deal 6 damage."
+horizontal_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(152, 212)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_u7spd")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

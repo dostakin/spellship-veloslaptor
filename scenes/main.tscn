@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvinbb75rh3q3"]
+
+[ext_resource type="Script" path="res://scripts/input_manager.gd" id="2_3oa7n"]
+[ext_resource type="Script" path="res://scripts/card_manager.gd" id="2_relu1"]
+[ext_resource type="PackedScene" uid="uid://btnw8ji0buipp" path="res://scenes/card.tscn" id="3_ay6hq"]
+[ext_resource type="PackedScene" uid="uid://b3sayw06s5n4c" path="res://scenes/sts_test.tscn" id="4_rah1p"]
+[ext_resource type="PackedScene" uid="uid://c6152sf4fc6ra" path="res://scenes/card_slot.tscn" id="5_ahr4b"]
+[ext_resource type="Script" path="res://scripts/player_hand.gd" id="6_x6u3m"]
+[ext_resource type="Script" path="res://scripts/deck.gd" id="7_14yso"]
+[ext_resource type="Texture2D" uid="uid://dd5ibqflcc45n" path="res://assets/cards/card_back/StS_Card_Back.png" id="8_7x42s"]
+
+[sub_resource type="GDScript" id="GDScript_30ugc"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtdmn"]
+size = Vector2(192, 256)
+
+[node name="Main" type="Node"]
+script = SubResource("GDScript_30ugc")
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("2_3oa7n")
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("2_relu1")
+
+[node name="Card" parent="CardManager" instance=ExtResource("3_ay6hq")]
+position = Vector2(400, 440)
+
+[node name="Card2" parent="CardManager" instance=ExtResource("3_ay6hq")]
+position = Vector2(632, 688)
+
+[node name="StS_Test" parent="CardManager" instance=ExtResource("4_rah1p")]
+offset_left = 272.0
+offset_top = 824.0
+offset_right = 572.0
+offset_bottom = 1244.0
+
+[node name="CardSlot" parent="." instance=ExtResource("5_ahr4b")]
+position = Vector2(128, 528)
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("6_x6u3m")
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(100, 890)
+script = ExtResource("7_14yso")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck"]
+z_index = -2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_7x42s")
+
+[node name="Area2D" type="Area2D" parent="Deck"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D"]
+shape = SubResource("RectangleShape2D_gtdmn")
+
+[node name="CardCounter" type="RichTextLabel" parent="Deck"]
+z_index = -2
+offset_left = -10.0
+offset_top = -20.0
+offset_right = 30.0
+offset_bottom = 20.0
+scale = Vector2(2, 2)
+text = "0"
+metadata/_edit_use_anchors_ = true

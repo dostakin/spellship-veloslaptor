@@ -1,0 +1,159 @@
+[gd_scene load_steps=5 format=3 uid="uid://c673sopo2ojml"]
+
+[ext_resource type="Script" path="res://scripts/card_base.gd" id="1_xfxjs"]
+[ext_resource type="Texture2D" uid="uid://dtpk42nv25u5l" path="res://assets/cards/card_art/Archer.png" id="2_s65d4"]
+[ext_resource type="Texture2D" uid="uid://c74tatgur4nqx" path="res://assets/cards/card_art/card_borders/card_border.png" id="2_vgv07"]
+[ext_resource type="Texture2D" uid="uid://taauu6y17g5k" path="res://assets/StS Card assets/background shade.png" id="4_58jp7"]
+
+[node name="CardBase" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 200)
+script = ExtResource("1_xfxjs")
+
+[node name="Card" type="Sprite2D" parent="."]
+scale = Vector2(0.179, 0.161)
+texture = ExtResource("2_s65d4")
+centered = false
+
+[node name="Border" type="Sprite2D" parent="."]
+scale = Vector2(1.31, 1.33)
+texture = ExtResource("2_vgv07")
+centered = false
+
+[node name="Bars" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TopGap" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="LeftGap" type="MarginContainer" parent="Bars/TopBar"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Bars/TopBar/Name"]
+layout_mode = 2
+texture = ExtResource("4_58jp7")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Name"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Bars/TopBar/Name/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Archer"
+
+[node name="MidGap" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cost" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Bars/TopBar/Cost"]
+layout_mode = 2
+texture = ExtResource("4_58jp7")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Cost"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="Bars/TopBar/Cost/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "1
+"
+
+[node name="RightGap" type="MarginContainer" parent="Bars/TopBar"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="MidGap" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="MidBar" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="LeftGap" type="MarginContainer" parent="Bars/MidBar"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Keywords" type="MarginContainer" parent="Bars/MidBar"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Bars/MidBar/Keywords"]
+layout_mode = 2
+texture = ExtResource("4_58jp7")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/MidBar/Keywords"]
+layout_mode = 2
+
+[node name="Keywords" type="Label" parent="Bars/MidBar/Keywords/CenterContainer"]
+layout_mode = 2
+text = "Ranged
+First Strike"
+
+[node name="LowGap" type="MarginContainer" parent="Bars"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomBar" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="LeftGap" type="MarginContainer" parent="Bars/BottomBar"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Stats" type="MarginContainer" parent="Bars/BottomBar"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Bars/BottomBar/Stats"]
+layout_mode = 2
+texture = ExtResource("4_58jp7")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/BottomBar/Stats"]
+layout_mode = 2
+
+[node name="Stats" type="Label" parent="Bars/BottomBar/Stats/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "2/1"
+
+[node name="MidGap" type="MarginContainer" parent="Bars/BottomBar"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="Health" type="MarginContainer" parent="Bars/BottomBar"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Bars/BottomBar/Health"]
+layout_mode = 2
+texture = ExtResource("4_58jp7")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/BottomBar/Health"]
+layout_mode = 2
+
+[node name="Health" type="Label" parent="Bars/BottomBar/Health/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="BottomGap" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 17)
+layout_mode = 2
